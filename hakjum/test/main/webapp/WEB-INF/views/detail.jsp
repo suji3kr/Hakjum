@@ -1,0 +1,42 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>detail</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>id</th>
+            <td>${member.id}</td>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <td>${member.boardID}</td>
+        </tr>
+        <tr>
+            <th>Pass</th>
+            <td>${member.boardPass}</td>
+        </tr>
+        <tr>
+            <th>Hakbun</th>
+            <td>${member.boardHakbun}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>${member.boardName}</td>
+        </tr>
+        <tr>
+            <th>Ko</th>
+            <td>${member.boardKo}</td>
+        </tr>
+        <tr>
+            <th>Eg</th>
+            <td>${member.boardEg}</td>
+        </tr>
+        <tr>
+            <th>Math</th>
+            <td>${member.boardMath}</td>
+        </tr>
+    </table>
+</body>
+</html>

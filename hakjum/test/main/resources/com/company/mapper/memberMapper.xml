@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Hakjum">
+
+    <!-- findAll - 전체 데이터 조회 -->
+    <select id="findAll" resultType="member">
+        SELECT * FROM hakjum_table;
+    </select>
+
+    <!-- save - 데이터 삽입 -->
+    <insert id="save" parameterType="member">
+        INSERT INTO hakjum_table (boardID, boardPass, boardHakbun, boardName, boardKo, boardEg, boardMath)
+        VALUES (#{boardID}, #{boardPass}, #{boardHakbun}, #{boardName}, #{boardKo}, #{boardEg}, #{boardMath});
+    </insert>
+
+    <!-- login - 로그인 검증 -->
+    <select id="login" parameterType="member" resultType="member">
+        SELECT * FROM hakjum_table WHERE boardID = #{boardID} AND boardPass = #{boardPass};
+    </select>
+
+    <!-- findById - id로 조회 -->
+    <select id="findById" parameterType="Long" resultType="member">
+        SELECT * FROM hakjum_table WHERE id = #{id};
+    </select>
+
+    <!-- delete - 데이터 삭제 -->
+    <delete id="delete" parameterType="Long">
+        DELETE FROM hakjum_table WHERE id = #{id};
+    </delete>
+
+    <!-- findByMemberHakbun - 학번으로 조회 -->
+    <select id="findByMemberHakbun" parameterType="String" resultType="member">
+        SELECT * FROM hakjum_table WHERE boardHakbun = #{loginHakbun};
+    </select>
+
+    <!-- update - 데이터 업데이트 -->
+    <update id="update" parameterType="member">
+        UPDATE hakjum_table 
+        SET boardKo = #{boardKo}, boardEg = #{boardEg}, boardMath = #{boardMath}
+        WHERE id = #{id};
+    </update>
+
+</mapper>
